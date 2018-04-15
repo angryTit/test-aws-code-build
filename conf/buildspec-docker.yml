@@ -1,20 +1,16 @@
 version: 0.2
 
-env:
-  variables:
-    ENV: "stage"
-
 phases:
   build:
     commands:
-      - echo "Variable is $ENV"
-      - echo "Submited variable is $SUBMIT_ENV"
       - echo Build started on `date`
       - echo Compiling the Go code...
       - go build hello.go
+      - go build bye.go
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
     - hello
+    - bye
